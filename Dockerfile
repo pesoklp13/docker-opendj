@@ -16,7 +16,7 @@ ARG ROOT_PORT
 ENV ROOT_PORT ${ROOT_PORT:-4444}
 
 ARG BASE_PORT
-ENV BASE_PORT ${BASE_POrT:-1389}
+ENV BASE_PORT ${BASE_PORT:-1389}
 
 RUN apt-get update && \
     apt-get install -y zip net-tools && \
@@ -48,3 +48,5 @@ RUN cd /opt/opendj && \
     ./bin/status
 
 EXPOSE $BASE_PORT
+
+ENTRYPOINT ["/bin/run.sh"]
